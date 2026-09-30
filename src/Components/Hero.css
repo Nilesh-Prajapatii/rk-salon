@@ -1,0 +1,96 @@
+.hero {
+  padding: 70px 30px;
+  background-color: #f8f8f8;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.15;
+  margin-bottom: 25px;
+  font-family: Georgia, serif;
+
+}
+
+.hero h1 span {
+  display: block;
+}
+
+.hero-description {
+  max-width: 550px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 13px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.primary-btn {
+  border: none;
+  background-color: #222;
+  color: white;
+}
+
+.secondary-btn {
+  border: 1px solid #222;
+  background-color: transparent;
+  color: #222;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.dashboard-placeholder {
+  min-height: 350px;
+  border-radius: 12px;
+  background-color: #e8e8e8;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.dashboard-placeholder h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.dashboard-placeholder p {
+  color: #666;
+}
