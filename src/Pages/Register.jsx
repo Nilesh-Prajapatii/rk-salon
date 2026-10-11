@@ -1,15 +1,28 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/RK-sallon-logo.jpeg";
 import "./Register.css";
 
-function Register () {
+function Register() {
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    // Your registration/API logic can go here
+
+    // Redirect to user dashboard
+    navigate("/user-dashboard");
+  };
+
   return (
     <div className="register-page">
-
       <div className="register-container">
 
         <div className="register-header">
           <div className="register-logo">
-            RK <span>SALON</span>
+            <img src={logo} alt="RK Salon" />
           </div>
 
           <Link to="/login" className="register-login-link">
@@ -37,15 +50,15 @@ function Register () {
 
           <div className="register-form-card">
 
-            <form>
+            <form onSubmit={handleRegister}>
 
               <div className="register-row">
-
                 <div className="register-input">
                   <label>First Name</label>
                   <input
                     type="text"
                     placeholder="First name"
+                    required
                   />
                 </div>
 
@@ -54,9 +67,9 @@ function Register () {
                   <input
                     type="text"
                     placeholder="Last name"
+                    required
                   />
                 </div>
-
               </div>
 
               <div className="register-input">
@@ -64,6 +77,7 @@ function Register () {
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  required
                 />
               </div>
 
@@ -71,32 +85,36 @@ function Register () {
                 <label>Mobile Number</label>
                 <input
                   type="tel"
-                  placeholder="Enter mobile number"
+                  placeholder="Enter mobile number" maxLength="10" minLength="10" pattern="[0-9]{10}"
+                  required
                 />
               </div>
 
               <div className="register-row">
-
                 <div className="register-input">
                   <label>Password</label>
-                  <input
-                    type="password"
-                    placeholder="Create password"
-                  />
+                  <input type={showPassword ? "text" : "password"}
+                    placeholder="Create password" required />
                 </div>
 
                 <div className="register-input">
                   <label>Confirm Password</label>
-                  <input
-                    type="password"
-                    placeholder="Confirm password"
-                  />
+                  <input type={showPassword ? "text" : "password"}
+                    placeholder="Confirm password" required />
                 </div>
-
               </div>
 
+              {/* Show Password */}
+              <label className="register-show-password">
+                <input type="checkbox"
+                  checked={showPassword}
+                  onChange={(e) => setShowPassword(e.target.checked)} />
+
+                <span>Show Password</span>
+              </label>
+
               <label className="register-terms">
-                <input type="checkbox" />
+                <input type="checkbox" required />
 
                 <span>
                   I agree to the Terms & Conditions
@@ -117,9 +135,8 @@ function Register () {
         </div>
 
       </div>
-
     </div>
   );
-};
+}
 
 export default Register;

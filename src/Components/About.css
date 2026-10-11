@@ -1,6 +1,6 @@
 .about {
   width: 100%;
-  background: #ffffff;
+  background: transparent;
   padding: 70px 0px;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .about-content h2 {
-  margin: 0 0 30px;
+  margin: 0 0 50px;
   font-family: Georgia, serif;
   font-size: 48px;
   line-height: 1.12;

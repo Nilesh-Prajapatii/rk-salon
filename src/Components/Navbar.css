@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+#home {
+  scroll-margin-top: 100px;
+}
+
+#about {
+  scroll-margin-top: 100px;
+}
+
+#services {
+  scroll-margin-top: 100px;
+}
+
+#contact {
+  scroll-margin-top: 100px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -15,41 +31,50 @@ body {
 }
 
 .navbar {
-  background-color: #ffffff;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
+  /* background-color: rgba(255, 255, 255, 0.88); */
+    background-color: rgba(249, 247, 247, 0.30);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  padding: 8px 0;
 }
 
 .navbar-container {
   width: 100%;
-  margin: 0 auto;
-  padding: 30px 30px;
+  padding: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-/* Logo */
-
-.logo {
-  font-size: 24px;
-  font-weight: 700;
-  color: #222222;
+/* Logo - left side */
+.navlogo {
+  width: 120px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-.logo span {
-  font-weight: 400;
+.navlogo img {
+  width: 120px;
+  height: 125px;
+  object-fit: contain;
+  display: block;
 }
 
-/* Navigation */
-
+/* Links - right side */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 30px;
   list-style: none;
-  margin: 0;
+  margin: 0 30px 0 auto;
   padding: 0;
 }
 
@@ -65,7 +90,6 @@ body {
 }
 
 /* Get Started */
-
 .nav-button {
   display: inline-block;
   padding: 12px 22px;
@@ -74,9 +98,4 @@ body {
   border-radius: 6px;
   text-decoration: none;
   font-size: 16px;
-  transition: background-color 0.2s ease;
-}
-
-.nav-button:hover {
-  background-color: #444444;
 }

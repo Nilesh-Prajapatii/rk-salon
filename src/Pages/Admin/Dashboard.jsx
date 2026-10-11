@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/RK-sallon-logo.jpeg";
+import salonBg from "../../assets/bg_image.jpeg";
 import "./Dashboard.css";
 
 function AdminDashboard() {
@@ -54,35 +56,43 @@ function AdminDashboard() {
     ];
 
     return (
-        <div className="dashboard">
+        <div
+            className="admindb"
+            style={{
+                backgroundImage: `linear-gradient(
+                rgba(255, 250, 245, 0.30),
+                rgba(255, 250, 245, 0.30)
+            ), url(${salonBg})`
+            }}
+        >
 
             {/* ================= HEADER ================= */}
-            <header className="top-header">
+            <header className="header">
 
                 <div className="logo">
-                   RK <span> SALON</span>
+                    <img src={logo} alt="RK Salon" />
                 </div>
 
                 <div className="admin-area">
-                    <span className="notification">🔔</span>
+                    <span className="notify">🔔</span>
                     <span className="admin-name">Admin</span>
-                    <span className="arrow">▼</span>
+                    <span className="arow">▼</span>
                 </div>
 
             </header>
 
             {/* ================= BODY ================= */}
-            <div className="dashboard-body">
+            <div className="admindb-body">
 
                 {/* ================= SIDEBAR ================= */}
-                <aside className="sidebar">
+                <aside className="sidebaar">
 
-                    <nav className="sidebar-menu">
+                    <nav className="sidebaar-menu">
 
                         {menuItems.map((item) => (
                             <button
                                 key={item.id}
-                                className={`menu-item ${activeSection === item.id ? "active" : ""
+                                className={`menu-itm ${activeSection === item.id ? "active" : ""
                                     }`}
                                 onClick={() => setActiveSection(item.id)}
                             >
@@ -105,7 +115,7 @@ function AdminDashboard() {
                 </aside>
 
                 {/* ================= MAIN CONTENT ================= */}
-                <main className="main-content">
+                <main className="main">
 
                     {/* DASHBOARD */}
                     {activeSection === "dashboard" && (
@@ -162,70 +172,70 @@ function AdminDashboard() {
 function DashboardContent({ setActiveSection }) {
     return (
         <>
-            <section className="welcome-section">
+            <section className="welcome">
                 <h1>Welcome back, Admin 👋</h1>
                 <p>Here's what's happening today.</p>
             </section>
 
             {/* STAT CARDS */}
-                      <div className="summary-cards">
+            <div className="summarycards">
 
-            <div className="summary-card">
+                <div className="summarycard">
 
-              <div className="card-icon">
-                👥
-              </div>
+                    <div className="cardicon">
+                        👥
+                    </div>
 
-              <div>
-                <p>Total Customers</p>
-                <h3>120</h3>
-              </div>
+                    <div>
+                        <p>Total Customers</p>
+                        <h3>120</h3>
+                    </div>
+
+                </div>
+
+
+                <div className="summarycard">
+
+                    <div className="cardicon">
+                        📅
+                    </div>
+
+                    <div>
+                        <p>Appointments</p>
+                        <h3>24</h3>
+                    </div>
+
+                </div>
+
+
+                <div className="summarycard">
+
+                    <div className="cardicon">
+                        👨‍💼
+                    </div>
+
+                    <div>
+                        <p>Employees</p>
+                        <h3>12</h3>
+                    </div>
+
+                </div>
+
+
+                <div className="summarycard">
+
+                    <div className="cardicon">
+                        ₹
+                    </div>
+
+                    <div>
+                        <p>Today's Revenue</p>
+                        <h3>₹45,000</h3>
+                    </div>
+
+                </div>
 
             </div>
-
-
-            <div className="summary-card">
-
-              <div className="card-icon">
-                📅
-              </div>
-
-              <div>
-                <p>Appointments</p>
-                <h3>24</h3>
-              </div>
-
-            </div>
-
-
-            <div className="summary-card">
-
-              <div className="card-icon">
-                👨‍💼
-              </div>
-
-              <div>
-                <p>Employees</p>
-                <h3>12</h3>
-              </div>
-
-            </div>
-
-
-            <div className="summary-card">
-
-              <div className="card-icon">
-                ₹
-              </div>
-
-              <div>
-                <p>Today's Revenue</p>
-                <h3>₹45,000</h3>
-              </div>
-
-            </div>
-
-          </div>
 
 
             {/* LOWER SECTION */}
@@ -234,16 +244,16 @@ function DashboardContent({ setActiveSection }) {
                 {/* Today's Appointments */}
                 <div className="dashboard-card appointments-card">
 
-                    
-              <div className="section-header">
 
-                <div>
-                  <h2>Today's Appointments</h2>
-                  <p>Upcoming appointments for today</p>
-                </div>
+                    <div className="sectionheader">
+
+                        <div>
+                            <h2>Today's Appointments</h2>
+                            <p>Upcoming appointments for today</p>
+                        </div>
 
 
-              </div>
+                    </div>
 
                     <div className="appointment-header">
                         <span>Time</span>
@@ -277,30 +287,30 @@ function DashboardContent({ setActiveSection }) {
                     <h2>Quick Actions</h2>
 
                     <button
-                        className="action-button"
+                        className="actionbutton"
                         onClick={() => setActiveSection("customers")}
                     >
-                        <span className="action-icon">♙+</span>
+                        <span className="actionicon">♙+</span>
                         <span>Add Customer</span>
-                        <span className="action-arrow">›</span>
+                        <span className="actionarrow">›</span>
                     </button>
 
                     <button
-                        className="action-button"
+                        className="actionbutton"
                         onClick={() => setActiveSection("appointments")}
                     >
-                        <span className="action-icon">▣</span>
+                        <span className="actionicon">▣</span>
                         <span>Book Appointment</span>
-                        <span className="action-arrow">›</span>
+                        <span className="actionarrow">›</span>
                     </button>
 
                     <button
-                        className="action-button"
+                        className="actionbutton"
                         onClick={() => setActiveSection("services")}
                     >
-                        <span className="action-icon">✂</span>
+                        <span className="actionicon">✂</span>
                         <span>Add Service</span>
-                        <span className="action-arrow">›</span>
+                        <span className="actionarrow">›</span>
                     </button>
 
                 </div>
@@ -317,15 +327,15 @@ function DashboardContent({ setActiveSection }) {
 
 function CustomersContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Customers</h1>
                     <p>Manage all salon customers.</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-btn">
                     + Add Customer
                 </button>
             </div>
@@ -373,15 +383,15 @@ function CustomersContent() {
 
 function AppointmentsContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Appointments</h1>
                     <p>Manage today's and upcoming appointments.</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-btn">
                     + Book Appointment
                 </button>
             </div>
@@ -429,15 +439,15 @@ function AppointmentsContent() {
 
 function ServicesContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Services</h1>
                     <p>Manage salon services and pricing.</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-btn">
                     + Add Service
                 </button>
             </div>
@@ -481,15 +491,15 @@ function ServicesContent() {
 
 function EmployeesContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Employees</h1>
                     <p>Manage salon employees and staff.</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-btn">
                     + Add Employee
                 </button>
             </div>
@@ -537,15 +547,15 @@ function EmployeesContent() {
 
 function BillingContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Billing</h1>
                     <p>Manage salon bills and payments.</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-btn">
                     + Create Bill
                 </button>
             </div>
@@ -605,15 +615,15 @@ function BillingContent() {
 
 function InventoryContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Inventory</h1>
                     <p>Manage salon products and stock.</p>
                 </div>
 
-                <button className="primary-button">
+                <button className="primary-btn">
                     + Add Product
                 </button>
             </div>
@@ -661,9 +671,9 @@ function InventoryContent() {
 
 function ReportsContent() {
     return (
-        <section className="page-section">
+        <section className="pagesection">
 
-            <div className="page-heading">
+            <div className="pageheading">
                 <div>
                     <h1>Reports</h1>
                     <p>View salon activity and performance reports.</p>

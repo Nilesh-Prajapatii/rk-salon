@@ -1,4 +1,6 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
@@ -8,50 +10,65 @@ import Contact from "./Components/Contact";
 
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Forgotpass from "./Pages/Forgotpass";
 
 import Dashboard from "./Pages/Admin/Dashboard";
 import UserDashboard from "./Pages/User/UserDashboard";
 
 import "./App.css";
+import bgImage from "./assets/bg_image.jpeg";
 
 function LandingPage() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Contact />
+      <Helmet>
+        <title>Your Salon Name | Hair & Beauty Services</title>
+
+        <meta
+          name="description"
+          content="Discover professional hair styling, beauty treatments, and salon services at Your Salon Name."
+        />
+
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+
+      <main
+        className="landing-page"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
+        <Navbar />
+        <Hero />
+        <About />
+        <Services />
+        <Contact />
+      </main>
     </>
   );
 }
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
 
-        {/* Landing Page */}
-        <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<Forgotpass />} />
 
-        {/* Authentication */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+          <Route
+            path="/admin-dashboard"
+            element={<Dashboard />}
+          />
 
-        {/* Admin Dashboard */}
-        <Route
-          path="/admin-dashboard"
-          element={<Dashboard />}
-        />
-
-        {/* User Dashboard */}
-        <Route
-          path="/user-dashboard"
-          element={<UserDashboard />}
-        />
-
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path="/user-dashboard"
+            element={<UserDashboard />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

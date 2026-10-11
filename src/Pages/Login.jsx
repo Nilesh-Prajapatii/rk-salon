@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/RK-sallon-logo.jpeg"
 import "./Login.css";
 
 const Login = () => {
@@ -17,6 +18,7 @@ const Login = () => {
       navigate("/user-dashboard");
     }
   };
+  
 
   return (
     <div className="login-page">
@@ -27,7 +29,7 @@ const Login = () => {
         <div className="login-left">
 
           <div className="login-logo">
-            <strong>RK</strong> SALON
+            <img src={logo} alt="RK Salon"/>
           </div>
 
           <div className="left-content">
@@ -86,7 +88,7 @@ const Login = () => {
           <form onSubmit={handleLogin}>
 
             {/* EMAIL */}
-            <div className="form-group">
+            <div className="form">
               <label>Email Address</label>
 
               <input
@@ -98,7 +100,7 @@ const Login = () => {
 
 
             {/* PASSWORD */}
-            <div className="form-group">
+            <div className="form">
               <label>Password</label>
 
               <div className="password-wrapper">

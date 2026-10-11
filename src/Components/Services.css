@@ -1,7 +1,7 @@
 .services {
   width: 100%;
   padding: 40px 30px;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .services-container {
@@ -60,7 +60,7 @@
   border: 1px solid #eeeeee;
   border-radius: 10px;
 
-  background-color: #ffffff;
+  background-color: transparent;
 
   text-align: center;
 

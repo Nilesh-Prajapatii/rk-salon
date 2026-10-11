@@ -1,9 +1,12 @@
-
+import { useNavigate } from "react-router-dom";
 import "./Hero.css";
 
 function Hero() {
+
+  const navigate = useNavigate();
+
   return (
-    <section className="hero" >
+    <section id="home" className="hero" >
       <div className="hero-container">
         <div className="hero-content">
           <p className="hero-subtitle">WELCOME TO RK SALON</p>
@@ -18,15 +21,18 @@ function Hero() {
             manage appointments, customers, employees, billing, inventory,
             and reports in one place.
           </p>
-        <div className="hero-buttons">
-          <button className="primary-btn">
-            Book Appointment
-          </button>
+          <div className="hero-buttons">
+            <button
+              className="primary-btn"
+              onClick={() => navigate("/login")}
+            >
+              Book Appointment
+            </button>
 
-          <button className="secondary-btn">
-            Explore Services
-          </button>
-        </div>
+            <a href="#services" className="secondary-btn">
+              Explore Services
+            </a>
+          </div>
         </div>
 
         <div className="hero-image">

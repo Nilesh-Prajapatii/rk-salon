@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/RK-sallon-logo.jpeg";
+import salonBg from "../../assets/bg_image.jpeg";
 import "./UserDashboard.css";
 
 function UserDashboard() {
@@ -49,7 +51,15 @@ function UserDashboard() {
     ];
 
     return (
-        <div className="dashboard">
+        <div
+                    className="dashboard"
+                    style={{
+                        backgroundImage: `linear-gradient(
+                        rgba(255, 250, 245, 0.30),
+                        rgba(255, 250, 245, 0.30)
+                    ), url(${salonBg})`
+                    }}
+                >
 
             {/* =========================================================
                HEADER
@@ -57,8 +67,8 @@ function UserDashboard() {
 
             <header className="top-header">
 
-                <div className="logo">
-                    RK <span> SALON</span>
+                <div className="mylogo">
+                    <img src={logo} alt="RK Salon" />
                 </div>
 
                 <div className="user-area">
@@ -99,11 +109,10 @@ function UserDashboard() {
 
                             <button
                                 key={item.id}
-                                className={`menu-item ${
-                                    activeSection === item.id
-                                        ? "active"
-                                        : ""
-                                }`}
+                                className={`menu-item ${activeSection === item.id
+                                    ? "active"
+                                    : ""
+                                    }`}
                                 onClick={() =>
                                     setActiveSection(item.id)
                                 }
@@ -241,7 +250,7 @@ function DashboardContent({ setActiveSection }) {
                     Welcome back, User 👋
                 </h1>
 
-                <p>z
+                <p>
                     Here's what's happening with your salon appointments.
                 </p>
 
@@ -316,25 +325,6 @@ function DashboardContent({ setActiveSection }) {
                 </div>
 
 
-                <div className="summary-card">
-
-                    <div className="card-icon">
-                        🎁
-                    </div>
-
-                    <div>
-
-                        <p>
-                            Reward Points
-                        </p>
-
-                        <h3>
-                            250
-                        </h3>
-
-                    </div>
-
-                </div>
 
             </div>
 
@@ -431,7 +421,7 @@ function DashboardContent({ setActiveSection }) {
                         </span>
 
                         <span className="action-arrow">
-                            ›
+                        ›
                         </span>
 
                     </button>
@@ -453,7 +443,7 @@ function DashboardContent({ setActiveSection }) {
                         </span>
 
                         <span className="action-arrow">
-                            ›
+                        ›
                         </span>
 
                     </button>
@@ -475,7 +465,7 @@ function DashboardContent({ setActiveSection }) {
                         </span>
 
                         <span className="action-arrow">
-                            ›
+                        ›
                         </span>
 
                     </button>
